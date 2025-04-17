@@ -1,7 +1,7 @@
 {
   "name": "stashone-nextjs",
   "description": "To create database schemas.",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3003",
