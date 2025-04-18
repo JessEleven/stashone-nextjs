@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../app/dash/resources/dash.css";
 
 .session-btn {
   @apply flex items-center justify-center gap-x-1.5 w-full py-2.5 text-neutral-800 font-medium leading-3.5 rounded-sm
