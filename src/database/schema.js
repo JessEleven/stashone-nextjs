@@ -1,4 +1,5 @@
-import { pgTable, text, timestamp, boolean } from 'drizzle-orm/pg-core'
+import { relations } from 'drizzle-orm'
+import { pgTable, text, timestamp, boolean, uuid, unique, jsonb } from 'drizzle-orm/pg-core'
 
 export const user = pgTable('user', {
   id: text('id').primaryKey(),
@@ -45,3 +46,39 @@ export const verification = pgTable('verification', {
   createdAt: timestamp('created_at'),
   updatedAt: timestamp('updated_at')
 })
+
+export const schemaMetadata = pgTable('schema_metadata', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  title: text('title', { length: 128 }).notNull(),
+  description: text('description'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+  userId: text('user_id').notNull().references(() => user.id, { onDelete: 'cascade' })
+}, (table) => ({
+  uniqueUserTitle: unique().on(table.userId, table.title)
+}))
+
+export const schemaData = pgTable('schema_data', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  content: jsonb('content').notNull(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+  schemaId: uuid('schema_id').notNull().references(() => schemaMetadata.id, { onDelete: 'cascade' })
+})
+
+export const schema = { user, session, account, verification, schemaMetadata, schemaData }
+
+export const usersRelated = relations(user, ({ many }) => ({
+  schemaMetadata: many(schemaMetadata)
+}))
+
+export const schemaMetadataRelated = relations(schemaMetadata, ({ one }) => ({
+  user: one(user, { fields: [schemaMetadata.userId], references: [user.id] }),
+
+  // Relation 1:1 with schemaData
+  schemaData: one(schemaData, { fields: [schemaMetadata.id], references: [schemaData.schemaId] })
+}))
+
+export const schemaDataRelated = relations(schemaData, ({ one }) => ({
+  schemaMetadata: one(schemaMetadata, { fields: [schemaData.schemaId], references: [schemaMetadata.id] })
+}))
