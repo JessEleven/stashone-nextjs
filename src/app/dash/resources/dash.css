@@ -2,3 +2,12 @@
   @apply cursor-pointer p-1.5 border border-teal-500/40 rounded-sm hover:bg-teal-500/15 
   transition-colors duration-200 ease-in-out
 }
+
+.btn {
+  @apply px-4 rounded-sm bg-neutral-100 text-neutral-900 hover:bg-neutral-300 transition-colors 
+  ease-in-out duration-200 cursor-pointer
+}
+
+.btn2 {
+  @apply px-4 rounded-sm bg-teal-500/20 hover:bg-teal-500/40 transition-colors ease-in-out duration-200 cursor-pointer
+}
