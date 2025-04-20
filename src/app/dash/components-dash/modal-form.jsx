@@ -1,19 +1,32 @@
 'use client'
 
+import { createSchemaMetadata } from '@/utils/schema-matadata'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 export default function ModalForm ({ setShowModal }) {
   const [formData, setFormData] = useState({
     title: '', description: ''
   })
+  const router = useRouter()
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
+    try {
+      const response = await createSchemaMetadata(formData)
+
+      if (response.success) {
+        const projectId = response.data[0].insertedId
+        router.push(`/dash/${projectId}`)
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error)
+    }
     console.log(formData)
   }
 
