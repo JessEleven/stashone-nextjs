@@ -17,7 +17,8 @@ export default function SignInForm () {
 
   return (
     <div className='w-full absolute bottom-10'>
-      <h3 className='mb-5 text-xl font-medium'>Sign in to create a database</h3>
+      <h2 className='text-2xl'>Welcome back</h2>
+      <h3 className='mb-5 text-base text-neutral-400'>Sign in to create a database</h3>
       <button
         type='button'
         className='session-btn'

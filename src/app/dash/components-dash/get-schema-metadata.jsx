@@ -30,7 +30,7 @@ export default function GetSchemaMetadata () {
     return (
       <div className='flex flex-col gap-y-2.5'>
         {Array.from({ length: 7 }).map((_, index) => (
-          <div key={index} className='p-2.5 border border-neutral-500/50 rounded-md animate-pulse'>
+          <div key={index} className='p-2.5 border border-neutral-500/75 rounded-md animate-pulse'>
             <div className='flex items-center justify-between'>
               <div className='h-4.5 w-1/2 bg-neutral-700/75 rounded' />
               <div className='flex items-center gap-x-2'>
@@ -56,7 +56,7 @@ export default function GetSchemaMetadata () {
       {data.length > 0
         ? (
             data.map((item) => (
-              <article key={item.id} className='flex flex-col p-2.5 border border-neutral-500/50 rounded-md'>
+              <article key={item.id} className='flex flex-col p-2.5 border border-neutral-500/75 rounded-md'>
                 <div className='flex items-center justify-between gap-x-2.5'>
                   <h3 className='text-base font-medium truncate leading-4'>{item.title}</h3>
 

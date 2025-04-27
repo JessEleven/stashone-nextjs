@@ -10,7 +10,7 @@ export default async function GetSession () {
   return (
     <>
       {session && (
-        <Link href='/dash' className='block px-3 py-1.5 text-[13px] leading-3.5 bg-teal-500/20 rounded-sm hover:bg-teal-500/30 transition-colors ease-in-out duration-200'>
+        <Link href='/dash' className='block px-3 py-1.5 text-[12px] leading-3.5 rounded-sm bg-neutral-100 text-neutral-900 hover:bg-neutral-300 transition-colors duration-200 ease-in-out'>
           Dashboard
         </Link>
       )}

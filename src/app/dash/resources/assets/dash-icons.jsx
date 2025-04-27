@@ -1,7 +1,7 @@
 export const LayoutSidevarIcon = (props) => (
   <svg
-    width={18}
-    height={18}
+    width={16}
+    height={16}
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
@@ -19,8 +19,8 @@ export const LayoutSidevarIcon = (props) => (
 
 export const LayoutSidevarFilledIcon = (props) => (
   <svg
-    width={18}
-    height={18}
+    width={16}
+    height={16}
     viewBox='0 0 24 24'
     fill='currentColor'
     className='icon icon-tabler icons-tabler-filled icon-tabler-layout-sidebar'
@@ -51,26 +51,22 @@ export const LogoutIcon = (props) => (
   </svg>
 )
 
-export const DatabasePlusIcon = (props) => (
+export const PlusIcon = (props) => (
   <svg
-    width={18}
-    height={18}
+    width={16}
+    height={16}
     viewBox='0 0 24 24'
     fill='none'
     stroke='currentColor'
     strokeWidth={2}
     strokeLinecap='round'
     strokeLinejoin='round'
-    className='icon icon-tabler icons-tabler-outline icon-tabler-database-plus'
+    className='icon icon-tabler icons-tabler-outline icon-tabler-plus'
     {...props}
   >
     <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-    <path d='M4 6c0 1.657 3.582 3 8 3s8 -1.343 8 -3s-3.582 -3 -8 -3s-8 1.343 -8 3' />
-    <path d='M4 6v6c0 1.657 3.582 3 8 3c1.075 0 2.1 -.08 3.037 -.224' />
-    <path d='M20 12v-6' />
-    <path d='M4 12v6c0 1.657 3.582 3 8 3c.166 0 .331 -.002 .495 -.006' />
-    <path d='M16 19h6' />
-    <path d='M19 16v6' />
+    <path d='M12 5l0 14' />
+    <path d='M5 12l14 0' />
   </svg>
 )
 
